@@ -1,0 +1,89 @@
+#: import rgba kivy.utils.rgba
+
+<MainWindow>:
+    orientation: 'vertical'
+    canvas.before:
+        Color:
+            rgba: [1,1,1,1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    ScreenManager:
+        id: scrn_mngr
+        Screen:
+            name: 'landing_page'
+            FloatLayout:
+                Button:
+                    text: 'Buat Akun'
+                    size_hint: (0.72,0.07)
+                    pos_hint: {'x':0.14,'y':0.18}
+                    on_release: scrn_mngr.current = 'registrasi_1'
+                Button:
+                    text: 'login'
+                    size_hint: (0.21, 0.024)
+                    pos_hint: {'x':0.57,'y':0.14}
+                    on_release: scrn_mngr.current = 'login_1'
+                Image:
+                    source: 'UI/frames/Registrasi dan Login/Landing Page.png'
+                    allow_stretch: True
+        Screen:
+            name: 'registrasi_1'
+            FloatLayout:
+                Image:
+                    source: 'UI/frames/Registrasi dan Login/Registrasi - 1.png'
+                    allow_stretch: True
+                Button:
+                    text: 'lanjut'
+                    size_hint: (0.72,0.07)
+                    pos_hint: {'x':0.14,'y':0.095}
+                    on_release: scrn_mngr.current = 'registrasi_2'
+                TextInput:
+
+        Screen:
+            name: 'registrasi_2'
+            FloatLayout:
+                Image:
+                    source: 'UI/frames/Registrasi dan Login/Registrasi - 2.png'
+                    allow_stretch: True
+        Screen:
+            name: 'login_1'
+            FloatLayout:
+                Button:
+                    text: 'Masuk'
+                    size_hint: (0.72,0.07)
+                    pos_hint: {'x':0.14,'y':0.205}
+                    on_release: root.login()
+                Button:
+                    text: 'Buat Akun'
+                    size_hint: (0.2, 0.024)
+                    pos_hint: {'x':0.57,'y':0.16}
+                    on_release: scrn_mngr.current = 'registrasi_1'
+                Button:
+                    size_hint: (0.07, 0.04)
+                    pos_hint: {'x':0.835,'y':0.37}
+                    on_release: login_password.password = not login_password.password
+                Image:
+                    source: 'UI/frames/Registrasi dan Login/Login - 1.png'
+                    allow_stretch: True
+                TextInput:
+                    id: login_email
+                    size_hint: (0.8,0.05)
+                    pos_hint: {'x':0.1,'y':0.49}
+                    multiline: False
+                    background_normal: ''
+                    background_disabled_normal: self.background_normal
+                    background_color: (0.93,0.93,0.93,0.93)
+                TextInput:
+                    id: login_password
+                    size_hint: (0.7,0.05)
+                    pos_hint: {'x':0.1,'y':0.37}
+                    multiline: False
+                    password: True
+                    background_normal: ''
+                    background_disabled_normal: self.background_normal
+                    background_color: (0.93,0.93,0.93,0.93)
+                Label:
+                    id: login_label
+                    size_hint: (0.7,0.05)
+                    pos_hint: {'x':0.055,'y':0.28}
+                    color: 1,0,0,1
