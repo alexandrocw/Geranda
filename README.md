@@ -1,5 +1,7 @@
 # Geranda
 Platform Geranda - Gerai Anda adalah platform untuk jual beli.
+main.py berisi program untuk inisialisasi
+geranda.kv berisi style untuk aplikasi
 
 Terdapat beberapa fitur yaitu:
 - Customer dapat membeli produk
